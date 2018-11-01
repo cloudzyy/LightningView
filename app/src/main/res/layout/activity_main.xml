@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#EE4000"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.cloud.library.lightningview.RoundImageView
+        android:layout_gravity="center"
+        android:src="@drawable/timg"
+        android:layout_width="300dp"
+        android:layout_height="220dp" />
+
+        <com.cloud.library.lightningview.LightningView
+            android:id="@+id/tttt"
+            android:layout_width="300dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:gravity="center" />
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>
