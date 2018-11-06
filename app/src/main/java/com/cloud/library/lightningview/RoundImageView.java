@@ -51,7 +51,6 @@ public class RoundImageView extends ImageView {
     private boolean mAnimating = false;
 
     private Matrix matrix;
-    private Matrix matrix2;
 
 
     public RoundImageView(Context context) {
@@ -98,16 +97,18 @@ public class RoundImageView extends ImageView {
 
         starBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.star);
 
-        mStarPaint = new Paint();
+
         //mStarPaint.setColor(Color.parseColor("#FF4081"));
         int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
         int size2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 42, getResources().getDisplayMetrics());
+
+
         //矩阵
-        matrix = new Matrix();
+
         matrix.setTranslate(getWidth() - 75, 10);
         mStarPaint.setAlpha(a);
         canvas.drawBitmap(starBitmap, matrix, mStarPaint);
-        canvas.drawLine(20, mLStarty, getWidth()-43, mLStopy, mLinePaint);
+        canvas.drawLine(30, mLStarty, getWidth()-43, mLStopy, mLinePaint);
 
     }
 
@@ -170,8 +171,8 @@ public class RoundImageView extends ImageView {
         mLightPaint = new Paint();
         mLinePaint = new Paint();
         mLinePaint.setStrokeWidth(8);
-
-
+        mStarPaint = new Paint();
+        matrix = new Matrix();
         initGradientAnimator();
     }
 
@@ -204,7 +205,6 @@ public class RoundImageView extends ImageView {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 float v = (Float) animation.getAnimatedValue();
-                //Log.i("cloud", "======animation======" + v);
                 //❶ 改变每次动画的平移x、y值，范围是[-2mViewWidth, 2mViewWidth]
                 mTranslateX = 4 * mViewWidth * v - mViewWidth * 2;
                 //mTranslateX = mViewWidth * v;
@@ -250,7 +250,7 @@ public class RoundImageView extends ImageView {
                     mAnimating = true;
                     if (valueAnimator != null) {
                         valueAnimator.start();
-                        valueAnimator2.start();
+                        //valueAnimator2.start();
                     }
                 }
             });
